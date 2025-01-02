@@ -1,0 +1,34 @@
+{
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "artratex",
+            "tools": [
+                "artratex"
+            ],
+        },
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "artratex",
+            "command": "./artratex.sh",
+            "args": [
+                "xa" // Use xelatex and bibtex
+            ]
+        },
+        {
+            "name": "clean-build",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "%OUTDIR%"
+            ],
+        }
+    ],
+    "latex-workshop.intellisense.citation.backend": "bibtex",
+    "latex-workshop.latex.outDir": "%DIR%/Build",
+    "latex-workshop.latex.bibDirs": [
+        "Biblio"
+    ],
+    "remote.autoForwardPortsFallback": 0,
+}

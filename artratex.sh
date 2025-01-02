@@ -55,7 +55,7 @@ fi
 #-
 #-> Set compilation out directory resembling the inclusion hierarchy
 #-
-Tmp="Tmp"
+Tmp="Build"
 Tex="Tex"
 if [[ ! -d $Tmp/$Tex ]]; then
     mkdir -p $Tmp/$Tex
@@ -89,21 +89,6 @@ fi
 #---------------------------------------------------------------------------#
 #->> Postprocessing
 #---------------------------------------------------------------------------#
-#-
-#-> Set PDF viewer
-#-
-System_Name=`uname`
-if [[ $System_Name == "Linux" ]]; then
-    PDFviewer="xdg-open"
-elif [[ $System_Name == "Darwin" ]]; then
-    PDFviewer="open"
-else
-    PDFviewer="open"
-fi
-#-
-#-> Open the compiled file
-#-
-$PDFviewer ./$Tmp/"$FileName".pdf || exit
 echo "---------------------------------------------------------------------------"
 echo "$TexCompiler $BibCompiler "$FileName".tex finished..."
 echo "---------------------------------------------------------------------------"
