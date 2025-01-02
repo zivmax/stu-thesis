@@ -72,7 +72,7 @@ export BSTINPUTS=".//:$BSTINPUTS" # paths to locate .bst
 #-
 #-> Build textual content and auxiliary files
 #-
-$TexCompiler -output-directory=$Tmp $FileName || exit
+$TexCompiler -synctex=1 -interaction=nonstopmode -file-line-error -output-directory=$Tmp $FileName || exit
 #-
 #-> Build references and links
 #-
@@ -82,9 +82,9 @@ if [[ -n $BibCompiler ]]; then
     #- extract and format bibliography database via auxiliary files
     $BibCompiler $Tmp/$FileName
     #- insert reference indicators into textual content
-    $TexCompiler -output-directory=$Tmp $FileName || exit
+    $TexCompiler -synctex=1 -interaction=nonstopmode -file-line-error -output-directory=$Tmp $FileName || exit
     #- refine citation references and links
-    $TexCompiler -output-directory=$Tmp $FileName || exit
+    $TexCompiler -synctex=1 -interaction=nonstopmode -file-line-error -output-directory=$Tmp $FileName || exit
 fi
 #---------------------------------------------------------------------------#
 #->> Postprocessing
@@ -92,4 +92,3 @@ fi
 echo "---------------------------------------------------------------------------"
 echo "$TexCompiler $BibCompiler "$FileName".tex finished..."
 echo "---------------------------------------------------------------------------"
-

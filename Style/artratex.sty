@@ -709,25 +709,30 @@
     %\renewcommand{\sectionmark}[1]{\markright{\MakeUppercase{#1}}{}}%
     %- Deactivate uppercase effect
     \renewcommand{\MakeUppercase}[1]{#1}%
+    \usepackage{lastpage}
     %- Define different kinds of header and footer for different parts
     \fancypagestyle{frontmatterstyle}{% style for frontmatter
         \fancyhf{}% clear fields
-        \fancyhead[C]{\footnotesize \ifnumodd{\value{page}}{\leftmark}{\@title}}% structure elements
-        \fancyfoot[C]{\footnotesize \thepage}% page number
+        \fancyhead[L]{\includegraphics[width=8em]{../Img/ShanghaiTech_Logo.png}}
+        \fancyhead[R]{\footnotesize \@title}
+        \fancyfoot[CE]{\footnotesize \thepage}% page number
+        \fancyfoot[CO]{\footnotesize \thepage}% page number
         \renewcommand{\headrulewidth}{0.8pt}% header rule
         \renewcommand{\footrulewidth}{0pt}% footer rule
     }
     \fancypagestyle{mainmatterstyle}{% style for mainmatter
         \fancyhf{}% clear fields
-        \fancyhead[C]{\footnotesize \ifnumodd{\value{page}}{\leftmark}{\@title}}% structure elements
-        \fancyfoot[C]{\footnotesize \ifnumodd{\value{page}}{\hspace*{\fill}\thepage}{\thepage\hspace*{\fill}}}% page number
+        \fancyhead[L]{\includegraphics[width=8em]{../Img/ShanghaiTech_Logo.png}}
+        \fancyhead[R]{\footnotesize \@title}
+        \fancyfoot[C]{第\thepage 页 \; 共\pageref{LastPage}页}
         \renewcommand{\headrulewidth}{0.8pt}% header rule
         \renewcommand{\footrulewidth}{0pt}% footer rule
     }
     \fancypagestyle{backmatterstyle}{% header and footer style for backmatter
         \fancyhf{}% clear fields
-        \fancyhead[C]{\footnotesize \ifnumodd{\value{page}}{\leftmark}{\@title}}% structure elements
-        \fancyfoot[C]{\footnotesize \ifnumodd{\value{page}}{\hspace*{\fill}\thepage}{\thepage\hspace*{\fill}}}% page number
+        \fancyhead[L]{\includegraphics[width=8em]{../Img/ShanghaiTech_Logo.png}}
+        \fancyhead[R]{\footnotesize \@title}
+        \fancyfoot[C]{第\thepage 页 \; 共\pageref{LastPage}页}
         \renewcommand{\headrulewidth}{0.8pt}% header rule
         \renewcommand{\footrulewidth}{0pt}% footer rule
     }

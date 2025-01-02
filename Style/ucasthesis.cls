@@ -158,6 +158,8 @@
 \newcommand{\ulhshift}{-4em}% horizontal shift on underline
 \newcommand{\ulextend}[2][350pt]{% extend underline length
     \hbox to #1{\hfill\hspace*{\ulhshift}#2\hfill}}
+\newcommand{\englishulextend}[2][400pt]{% extend underline length
+    \hbox to #1{\hfill\hspace*{\ulhshift}#2\hfill}}
 %---------------------------------------------------------------------------%
 %->> Titlepage
 %---------------------------------------------------------------------------%
@@ -182,6 +184,10 @@
     \def\ucas@value@ch@titlemark{#1}}
 \def\ucas@value@ch@author{}
 \renewcommand{\author}[1]{\def\ucas@value@ch@author{#1}}
+\def\ucas@value@ID{}
+\newcommand{\ID}[1]{\def\ucas@value@ID{#1}}
+\def\ucas@value@year{}
+\newcommand{\entranceYear}[1]{\def\ucas@value@ch@year{#1}}
 \def\ucas@value@ch@advisor{}
 \newcommand{\advisor}[1]{\long\def\ucas@value@ch@advisor{#1}}
 \def\ucas@value@ch@advisors{}
@@ -604,12 +610,13 @@
 %->> Structure layout
 %---------------------------------------------------------------------------%
 %- chapter
+\usepackage{zhnumber}
 \ctexset {
     chapter = {
         format = \linespread{1.0}\zihao{4}\bfseries\sffamily\centering,
         nameformat = {},
         titleformat = {},
-        number = \arabic{chapter},
+        number = \zhnum{chapter},
         numberformat = \rmfamily,
         aftername = \quad,
         beforeskip = {7pt},
